@@ -13,18 +13,16 @@ global_policy_types := [okey | okey := object.keys(global_policies)[_]] # return
 res_is_global_type := nifi_inp.resource_id in global_policy_types       # returns a boolean wether the resource is a global resource
 
 
-has_key(obj, key) := true if _ = obj[key] # helper function
-
 # Searches user entry in the nifi_global_policies abstraction layer  
 global_policy_user_has_permissions(res_id, user_name, action) := true if {
-    has_key(global_policies, res_id)
-    has_key(global_policies[res_id]["users"], user_name)
+    res_id in object.keys(global_policies)
+    user_name in object.keys(global_policies[res_id]["users"])
     global_policies[res_id]["users"][user_name] == action
 }
 
 # Searches user-group entry in the nifi_global_policies abstraction layer  
 global_policy_group_has_permissions(res_id, user_groups, action) := true if {
-    has_key(global_policies, res_id)
+    res_id in object.keys(global_policies)
     x := { trim(k, " ") | k = object.keys(global_policies[res_id]["groups"])[_] }
     y := { trim(k, " ") | k = user_groups[_] }
     count(x & y) > 0 # check if there is atleast one intersecting group
@@ -39,7 +37,7 @@ global_policy_read := true if {
         nifi_inp.user_name, 
         "READ")
 }
-# true, if user is allowed to read on a given global policy
+# true, if user-group is allowed to read on a given global policy
 global_policy_read := true if {
     global_policy_group_has_permissions(
         nifi_inp.inherit_resource_id, 
@@ -73,7 +71,6 @@ global_policy_full := true if {
         nifi_inp.user_name, 
         "FULL")
 }
-
 # true, if a user-group is allowed to read AND write on a given global policy
 global_policy_full := true if {
     global_policy_group_has_permissions(

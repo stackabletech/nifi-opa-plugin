@@ -6,9 +6,6 @@ import data.nifi_inp
 import data.nifi_root_policies.root_policies
 import data.nifi_node_policies.node_policies
 
-
-has_key(obj, key) := true if _ = obj[key]
-
 # Root Component Rules Logic
 root_policy_types := [key | key := object.keys(root_policies)[_]]
 get_root_type := rt if {
@@ -19,8 +16,8 @@ get_root_type := rt if {
 comp_is_root_type := get_root_type in root_policy_types
 
 component_exists_in_root(comp_type, res_name) := true if {
-    has_key(root_policies, comp_type)
-    has_key(root_policies[comp_type], res_name)
+    comp_type in object.keys(root_policies)
+    res_name in object.keys(root_policies[comp_type])
 }
 
 root_policy_user_has_permissions(comp_type, res_name, user_name, action) := true if {
@@ -47,8 +44,8 @@ compID := array.reverse(split(nifi_inp.resource_id, "/"))[0]
 inheritCompID := array.reverse(split(nifi_inp.inherit_resource_id, "/"))[0]
 
 component_exists_in_node(comp_type, res_ID) := true if {
-    has_key(node_policies, comp_type)
-    has_key(node_policies[comp_type], res_ID)
+    comp_type in object.keys(node_policies)
+    res_ID in object.keys(node_policies[comp_type])
 }
 
 node_policy_user_has_permissions(comp_type, res_ID, user_name, action) := true if {
@@ -207,7 +204,7 @@ node_inherit_comp_denied := true if {
 
 node_comp_has_action := true if {
     component_exists_in_node(get_node_type, inheritCompID)
-    not has_key(node_policies[get_node_type][inheritCompID], nifi_inp.action)
+    not nifi_inp.action in object.keys(node_policies[get_node_type][inheritCompID])
 }
 
 inherit_comp_exists_as_root := true if {
