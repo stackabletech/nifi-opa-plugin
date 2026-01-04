@@ -14,7 +14,3 @@ user_groups := split(input.identity.groups, ",")
 user_context := input.userContext
 isAccessAttempt := input.properties.isAccessAttempt
 isAnonymous := input.properties.isAnonymous
-
-# test := true if {
-#     action == "read"
-# }
