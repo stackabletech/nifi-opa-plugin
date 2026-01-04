@@ -17,5 +17,6 @@ buildNumber.properties
 .classpath
 
 /rego/input.json
+/tests/rego/input.json
 /.vscode
 *.bkp
