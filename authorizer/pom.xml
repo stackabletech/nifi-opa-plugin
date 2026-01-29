@@ -12,8 +12,7 @@
 
   <name>nifiopa</name>
   <description>A plugin for nifi to support opa authorization.</description>
-  <!-- FIXME change it to the project's website -->
-  <!--<url>http://www.example.com</url>-->
+  <url>https://github.com/stackabletech/nifi-opa-plugin</url>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
