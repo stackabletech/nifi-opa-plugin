@@ -160,6 +160,17 @@
         <maven.compiler.target>21</maven.compiler.target>
       </properties>
     </profile>
+    <profile>
+      <id>nifi-2.12.0</id>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+      <properties>
+        <nifi-framework-api.version>2.12.0</nifi-framework-api.version>
+        <maven.compiler.source>21</maven.compiler.source>
+        <maven.compiler.target>21</maven.compiler.target>
+      </properties>
+    </profile>
   </profiles>
 
   <reporting>
