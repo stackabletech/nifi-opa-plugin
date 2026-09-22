@@ -142,25 +142,9 @@
 
   <profiles>
     <profile>
-      <id>nifi-1.28.1</id>
-      <properties>
-        <nifi-framework-api.version>1.28.1</nifi-framework-api.version>
-        <maven.compiler.source>11</maven.compiler.source>
-        <maven.compiler.target>11</maven.compiler.target>
-      </properties>
-    </profile>
-    <profile>
       <id>nifi-2.6.0</id>
       <properties>
         <nifi-framework-api.version>2.6.0</nifi-framework-api.version>
-        <maven.compiler.source>21</maven.compiler.source>
-        <maven.compiler.target>21</maven.compiler.target>
-      </properties>
-    </profile>
-    <profile>
-      <id>nifi-2.7.2</id>
-      <properties>
-        <nifi-framework-api.version>2.7.2</nifi-framework-api.version>
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
       </properties>
