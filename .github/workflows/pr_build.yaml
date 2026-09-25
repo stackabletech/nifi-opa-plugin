@@ -23,13 +23,11 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - nifi-profile: nifi-1.28.1
-            java-version: 11
           - nifi-profile: nifi-2.6.0
             java-version: 21
-          - nifi-profile: nifi-2.7.2
-            java-version: 21
           - nifi-profile: nifi-2.9.0
+            java-version: 21
+          - nifi-profile: nifi-2.12.0
             java-version: 21
     steps:
       - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0

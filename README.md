@@ -30,7 +30,8 @@ This repository contains a plugin for Apache NiFi in order to add support for th
 
 For building the plugin in `/authorizer`.
 
-- [Java 11 JDK](https://www.oracle.com/java/technologies/javase/jdk11-archive-downloads.html) (NiFi 1.x) or [Java 21 JDK](https://www.oracle.com/java/technologies/javase/jdk21-archive-downloads.html) (NiFi 2.x)
+- [Java 21 JDK](https://www.oracle.com/java/technologies/javase/jdk21-archive-downloads.html) (NiFi 2.x).
+  Nix users can run: `nix shell nixpkgs#maven nixpkgs#temurin-bin-21`.
 - Maven, via the bundled `mvnw` wrapper (no separate install needed; the pinned version can be bumped in `.mvn/wrapper/maven-wrapper.properties`)
 
 ### Docker
@@ -52,7 +53,7 @@ To build the plugin execute the following from the repository root:
 This builds the `.nar`-plugin in the `/target` folder for the latest NiFi version. To target a specific version of NiFi use the corresponding maven profile.
 
 ```bash
-./mvnw --file authorizer/pom.xml install -Pnifi-1.28.1
+./mvnw --file authorizer/pom.xml install -Pnifi-2.12.0
 ```
 
 ### Using the plugin
