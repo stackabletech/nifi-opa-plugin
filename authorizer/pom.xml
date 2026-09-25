@@ -7,7 +7,7 @@
 
   <groupId>org.nifiopa.nifiopa</groupId>
   <artifactId>opa-authorizer</artifactId>
-  <version>0.6.0</version>
+  <version>0.7.0</version>
   <packaging>nar</packaging>
 
   <name>nifiopa</name>
