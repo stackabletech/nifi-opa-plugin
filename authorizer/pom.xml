@@ -157,9 +157,6 @@
     </profile>
     <profile>
       <id>nifi-2.9.0</id>
-      <activation>
-        <activeByDefault>true</activeByDefault>
-      </activation>
       <properties>
         <nifi-framework-api.version>2.9.0</nifi-framework-api.version>
         <maven.compiler.source>21</maven.compiler.source>
